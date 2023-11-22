@@ -1,9 +1,10 @@
 body{
   background-color:black;
-  color:white;}
+  color:white;
+text-align:center;}
 
 #verb,#problem,#history{
-  font-size:1.5em;
+  font-size:2em;
 }
 
 
@@ -39,7 +40,7 @@ body{
 }
 
 .correct,.incorrect{
-  width:250px;
+  width:30%;
   display:inline-block;
 }
 
