@@ -1,0 +1,53 @@
+body{
+  background-color:black;
+  color:white;}
+
+#verb,#problem,#history{
+  font-size:2em;
+}
+
+
+#choices span{
+  padding:15px;
+  margin:10px;
+  border-radius: 5px;
+  background-color: lightgrey;
+  display:inline-block;
+  cursor:default;
+}
+
+#choices span .answerEnd{
+  padding:0px;
+  margin:0px;
+  font-weight:bold;
+  text-decoration: underline;
+  background-color:transparent;
+}
+
+#choices span:hover{
+  background-color: lightyellow;
+}
+
+.ending{
+  font-weight:bold;
+}
+
+
+
+#choices{
+  color:black;
+}
+
+.correct,.incorrect{
+  width:250px;
+  display:inline-block;
+}
+
+.correct{
+  color:green;
+}
+.incorrect{
+color:red;
+}
+
+
