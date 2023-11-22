@@ -35,19 +35,7 @@ answers[RE] = ['s','','ons', 'ez','ent'];
 
 var correctAnswer;
 var correctAnswerOutput;
-
-
-
-
 generateRandomProblem();
-
-/*var max = 6;
-var r= [];
-for(var k = 0; k<35 ; k++)
-    r.push(randomInt(max));
-
-alert(r.join(","));    
-*/
 
 function randomInt(n){
     if (n == 1)
