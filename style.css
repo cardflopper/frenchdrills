@@ -1,10 +1,15 @@
 body{
   background-color:black;
   color:white;
-text-align:center;}
+  text-align:center;
+  font-family:papyrus;}
 
-#subject,#choices{
-  font-size:2em;
+#subject{
+  font-size:3em;
+}
+
+#choices{
+  font-size:1.2em;
 }
 
 #verb,#history{
@@ -14,12 +19,14 @@ text-align:center;}
 
 
 #choices span{
-  padding:15px;
+  padding:10px;
   margin:10px;
   border-radius: 5px;
   background-color: lightgrey;
   display:inline-block;
+  
   cursor:default;
+  text-align:left;
 }
 
 #choices span .answerEnd{
@@ -44,8 +51,17 @@ text-align:center;}
   color:black;
 }
 
+.left{
+  text-align:right;
+  margin-right:10px;
+}
+.right{
+  text-align:left;
+  margin-left:10px;
+}
+
 .correct,.incorrect{
-  width:30%;
+  width:40%;
   display:inline-block;
 }
 

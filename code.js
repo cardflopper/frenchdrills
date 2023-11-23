@@ -35,6 +35,7 @@ answers[RE] = ['s','','ons', 'ez','ent'];
 
 var correctAnswer;
 var correctAnswerOutput;
+
 generateRandomProblem();
 
 function randomInt(n){
@@ -103,11 +104,13 @@ function evaluateAnswer(isCorrect,yourAnswer){
     yourAnswerSpan.innerText = yourAnswer;
     var answerClass = isCorrect == true ? "correct" : "incorrect";
     yourAnswerSpan.classList.add(answerClass);
+    yourAnswerSpan.classList.add("left");
     
     
     var correctAnswerSpan = document.createElement("span");
     correctAnswerSpan.innerText = correctAnswerOutput;
     correctAnswerSpan.classList.add("correct");
+    correctAnswerSpan.classList.add("right");
     entry.append(yourAnswerSpan);
     entry.append(correctAnswerSpan);
     
@@ -135,7 +138,6 @@ function shuffle(array) {
   
     return array;
 }
-
 function removeAllChildNodes(pNode) {
     while (pNode.firstChild) {
         pNode.removeChild(pNode.lastChild);
