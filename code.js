@@ -35,6 +35,8 @@ answers[RE] = ['s','','ons', 'ez','ent'];
 
 var correctAnswer;
 var correctAnswerOutput;
+var answeredCount=0;
+
 
 generateRandomProblem();
 
@@ -98,10 +100,10 @@ function displayProblem(vbEnding,verb,subject){
 }
 
 function evaluateAnswer(isCorrect,yourAnswer){
-
+    answeredCount++;
     var entry = document.createElement("div");
     var yourAnswerSpan = document.createElement("span");
-    yourAnswerSpan.innerText = yourAnswer;
+    yourAnswerSpan.innerText = answeredCount + ") "+ yourAnswer;
     var answerClass = isCorrect == true ? "correct" : "incorrect";
     yourAnswerSpan.classList.add(answerClass);
     yourAnswerSpan.classList.add("left");
