@@ -17,7 +17,7 @@ verbs_end[ER]='er';
 verbs_end[IR]='ir';
 verbs_end[RE]='re';
 
-verbs[ER] = ['mang','aim','chant','dans','demand','arriv','cherch','dépens','parl','travaill','regard','trouv','visit','march','tomb','rêv'];
+verbs[ER] = ['aim','chant','dans','demand','arriv','cherch','dépens','parl','travaill','regard','trouv','visit','march','tomb','rêv'];
 verbs[IR] = ['fin','chois','ag','rempl','pun','nourr','avert','maigr','gross','grand','réfléch','obé','accompl','bât','défin','établ','part','répart','préven','cour'];
 verbs[RE] = ['attend','descend','répond','vend','perd','rend','confond','fond','entend'];
 
@@ -25,7 +25,7 @@ conjugations[ER] = ['e','es','e','e','ons', 'ez', 'ent','ent'];
 conjugations[IR] = ['is','is','it','it','issons', 'issez', 'issent','issent'];
 conjugations[RE] = ['s','s','','','ons', 'ez', 'ent','ent'];
 
-verbs_eng[ER] = ['eat', 'like', 'sing','dance','demand','arrive','search','spend money','talk, speak','work','watch, look at','find','visit (a place)','walk','fall down, drop','dream']
+verbs_eng[ER] = ['like', 'sing','dance','demand','arrive','search','spend money','talk, speak','work','watch, look at','find','visit (a place)','walk','fall down, drop','dream']
 verbs_eng[IR] = ['finish','choose','act','fill','punish','feed/nourish','warn','get thin / lose weight','get fat / gain weight','grow up','think, reflect','obey','accomplish','build','define','establish','leave','distribute','prevent','run'];
 verbs_eng[RE] = ['wait for','go down','answer','sell','lose','give back / return','confuse','melt','hear, understand'];
 
