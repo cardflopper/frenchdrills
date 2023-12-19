@@ -1,41 +1,5 @@
 
-var verbData = [
-        {
-            "inf":"aimer",
-            "english":"to like",
-            "end":"er",
-            "type":"regular",
-            "base":"aim",
-            "present":["e","es","e","e","ons","ez","ent","ent"]},
-        {
-            "inf":"chanter",
-            "english":"to sing",
-            "end":"er",
-            "type":"regular",
-            "base":"chant",
-            "present":["e","es","e","e","ons","ez","ent","ent"]},
-        {
-            "inf":"danser",
-            "english":"to dance",
-            "end":"er",
-            "type":"regular",
-            "base":"dans",
-            "present":["e","es","e","e","ons","ez","ent","ent"]},
-        {
-            "inf": "demander",
-            "english":"to demand",
-            "end":"er",
-            "type":"regular",
-            "base":"demand",
-            "present":["e","es","e","e","ons","ez","ent","ent"]},
-        {   
-            "inf": "arriver",
-            "english":"to arrive",
-            "end":"er",
-            "type":"regular",
-            "base":"arriv",
-            "present":["e","es","e","e","ons","ez","ent","ent"]},
-        ];
+
         
 
 generateRandomProblem();
@@ -49,60 +13,73 @@ function randomInt(n){
 
 function generateRandomProblem(){
     const randIndexVb = randomInt(verbData.length);
-    const subject = randomInt(8);  
+    const randSubject = randomInt(8);  
+    const randTense = randomInt(2);  
     
-    currentProblemData = verbData[randIndexVb];
-    displayProblem(currentProblemData,subject,"present");
+    displayProblem(verbData[randIndexVb],randSubject,randTense);
 }
 
-function displayProblem(vbData,subject,tense){
+function displayProblem(vbData,subject,tense_){
 
-    document.getElementById('verb').innerText = vbData.inf + " (" + vbData.english + ")";
+
+    var tense = tenses[tense_];
+    document.getElementById('verb').innerText = vbData.inf + " > "+tense+ " (" + englishForm[tense_] + " "+ vbData.english + ")";
     
     document.getElementById('subject').innerText = subjects[subject];
     var list=[];
-    
+
     for(let i=0; i < vbData[tense].length; i++){
         var choice = document.createElement("span");
         
         var conjugatedEnding = document.createElement("span");
         conjugatedEnding.classList.add("answerEnd");
         
-        conjugatedEnding.innerText = vbData[tense][subject];
-        choice.innerText = vbData.base;
+        conjugatedEnding.innerText = vbData[tense][i];
+        
+        
+        choice.innerText = vbData.base[tense];
         choice.append(conjugatedEnding);
 
-        if(i == subject)
-            choice.addEventListener("click", () => evaluateAnswer(true,yourAnswer), true);
-        else        
-            choice.addEventListener("click", () => evaluateAnswer(false,yourAnswer), true);
         
-        list.push(choice);
-    }
+        if(i == vbData[tense].indexOf(vbData[tense][subject]))
+            choice.addEventListener("click", () => evaluateAnswer(true,vbData.base[tense] + vbData[tense][i]), true);
+        else        
+            choice.addEventListener("click", () => evaluateAnswer(false,vbData.base[tense] + vbData[tense][i]), true);
 
+        if(i == vbData[tense].indexOf(vbData[tense][i]))
+            list.push(choice);
+        
+    }
+    
     shuffle(list);
 
     removeAllChildNodes(document.getElementById('choices'));
     for(item of list)
        document.getElementById('choices').append(item);
 }
-/*
+
+
+function isFirstOccurence(arr,value){
+
+}
+
+
+function countOccurences(arr,value){
+    return arr.filter(x => x==value).length;
+}
+
+
 function evaluateAnswer(isCorrect,yourAnswer){
-    answeredCount++;
+    
+    
     var entry = document.createElement("div");
     var yourAnswerSpan = document.createElement("span");
-    yourAnswerSpan.innerText = answeredCount + ") "+ yourAnswer;
+    yourAnswerSpan.innerText = yourAnswer;
     var answerClass = isCorrect == true ? "correct" : "incorrect";
     yourAnswerSpan.classList.add(answerClass);
     yourAnswerSpan.classList.add("left");
     
-    
-    var correctAnswerSpan = document.createElement("span");
-    correctAnswerSpan.innerText = correctAnswerOutput;
-    correctAnswerSpan.classList.add("correct");
-    correctAnswerSpan.classList.add("right");
     entry.append(yourAnswerSpan);
-    entry.append(correctAnswerSpan);
     
     document.getElementById("history").prepend(entry);
     
