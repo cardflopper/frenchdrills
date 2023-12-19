@@ -12,11 +12,11 @@ body{
   font-size:1.2em;
 }
 
-#verb,#history{
+#tips,#infinitive,#tense,#history{
   font-size:1.2em;
 }
 
-
+#tips{width:50%;margin:0 auto; border:1px solid orange;}
 
 #choices span{
   padding:10px;

@@ -14,16 +14,20 @@ function randomInt(n){
 function generateRandomProblem(){
     const randIndexVb = randomInt(verbData.length);
     const randSubject = randomInt(8);  
-    const randTense = randomInt(2);  
+    const randTense = randomInt(4);  
     
     displayProblem(verbData[randIndexVb],randSubject,randTense);
 }
 
 function displayProblem(vbData,subject,tense_){
 
-
+    
     var tense = tenses[tense_];
-    document.getElementById('verb').innerText = vbData.inf + " > "+tense+ " (" + englishForm[tense_] + " "+ vbData.english + ")";
+
+    document.getElementById('tips').innerText = tips[tense];
+
+    document.getElementById('infinitive').innerText = vbData.inf + " : " +vbData.english.inf
+    document.getElementById('tense').innerText = tense+ " : " + vbData.english[tense] ;
     
     document.getElementById('subject').innerText = subjects[subject];
     var list=[];
