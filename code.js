@@ -37,6 +37,42 @@ var correctAnswer;
 var correctAnswerOutput;
 var answeredCount=0;
 
+var verb_data = {
+    "aimer": {
+        "english":"to like",
+        "end":"er",
+        "type":"regular",
+        "base":"aim"
+    },
+    "chanter": {
+        "english":"to sing",
+        "end":"er",
+        "type":"regular",
+        "base":"chant"
+    },
+    "danser": {
+        "english":"to dance",
+        "end":"er",
+        "type":"regular",
+        "base":"dans"
+    },
+    "demander": {
+        "english":"to demand",
+        "end":"er",
+        "type":"regular",
+        "base":"demand"
+    },
+    "arriver": {
+        "english":"to arrive",
+        "end":"er",
+        "type":"regular",
+        "base":"arriv"
+    },
+
+}
+
+
+
 
 generateRandomProblem();
 
