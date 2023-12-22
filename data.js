@@ -15,7 +15,7 @@ var verbData = [
             "end":"er",
             "type":"irregular",
             "base": {"pastImperfect":"mang","present":"mang","futureSimple":"manger","conditional":"manger"},
-            "pastImperfect":["eais","eais","eait","eait","ions","iez","aient","eaient"],
+            "pastImperfect":["eais","eais","eait","eait","ions","iez","eaient","eaient"],
             "present":["e","es","e","e","eons","ez","ent","ent"],
             "futureSimple":["ai","as","a","a","ons","ez","ont","ont"],
             "conditional":["ais","ais","ait","ait","ions","iez","aient","aient"]},
