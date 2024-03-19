@@ -3,8 +3,8 @@ var tenses = ["pastImperfect","present","futureSimple","conditional"];
 var tips = {
     "pastImperfect":"start with present-tense stem of nous form, add the imperfect endings: je/tu = ais, il = ait, ions, iez, ils = aient (identical for verbs of all groups)",
     "present":"basic",
-    "futureSimple":"start with infinitive, add these endings: je = ai, tu = as, il = a, ons, ez, ils = ont. (for -re verbs,  remove  final e)",
-    "conditional": "add imperfect endings to stem of the futureSimple form"
+    "futureSimple":"start with infinitive, add endings: je = ai, tu = as, il = a, ons, ez, ils = ont. (for -re verbs,  remove  final e)",
+    "conditional": "start with stem of the futureSimple (usually infinitive), add imperfect endings"
 }
 
 var verbData = [

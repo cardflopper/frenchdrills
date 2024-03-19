@@ -14,13 +14,18 @@ function randomInt(n){
 
 function generateRandomProblem(){
     const randIndexVb = randomInt(verbData.length);
-    const randSubject = randomInt(8);  
-    const randTense = randomInt(4);  
+    const randSubject = randomInt(subjects.length);  
+    const randTense = randomInt(tenses.length);  
     
     displayProblem(verbData[randIndexVb],randSubject,randTense);
 }
 
-function displayProblem(vbData,subject,tense_){
+function startsWithVowel(str){
+ return "aeiouAEIOU".indexOf(str.charAt(0)) != -1;
+}
+
+
+function displayProblem(vbData,subject_,tense_){
 
     var tense_ans = tenses[tense_];
     
@@ -29,26 +34,31 @@ function displayProblem(vbData,subject,tense_){
     document.getElementById('infinitive').innerText = vbData.inf + " : " +vbData.english.inf
     document.getElementById('tense').innerText = tense_ans + " : " + vbData.english[tense_ans] ;
     
-    document.getElementById('subject').innerText = subjects[subject];
+    if(startsWithVowel(vbData.inf) && subject_ == 0)
+        sub = "j'";
+    else 
+        sub = subjects[subject_];
+    document.getElementById('subject').innerText = sub;
     var list=[];
 
     
     for(let i=0; i < tenses.length; i++){
 
-        var choice = document.createElement("span");
+        var choice = document.createElement("div");
+        choice.classList.add('choice');
         
-        var conjugatedEnding = document.createElement("span");
-        conjugatedEnding.classList.add("answerEnd");
+        var conjugatedEnding = document.createElement('span');
+        conjugatedEnding.classList.add('answerEnd');
         
-        conjugatedEnding.innerText = vbData[tenses[i]][subject];
+        conjugatedEnding.innerText = vbData[tenses[i]][subject_];
         
         choice.innerText = vbData.base[tenses[i]];
         choice.append(conjugatedEnding);
 
         if(i == tense_)
-            choice.addEventListener("click", () => evaluateAnswer(true, vbData.base[tenses[i]] + vbData[tenses[i]][subject]), true);
+            choice.addEventListener("click", () => evaluateAnswer(true, tenses[i]+": "+sub + " " + vbData.base[tenses[i]] + vbData[tenses[i]][subject_]), true);
         else        
-            choice.addEventListener("click", () => evaluateAnswer(false, vbData.base[tenses[i]] + vbData[tenses[i]][subject]), true);
+            choice.addEventListener("click", () => evaluateAnswer(false, tenses[i]+": "+sub + " " + vbData.base[tenses[i]] + vbData[tenses[i]][subject_]), true);
         
         list.push(choice);
     }
@@ -56,42 +66,36 @@ function displayProblem(vbData,subject,tense_){
     
     shuffle(list);
 
-    removeAllChildNodes(document.getElementById('choices'));
+    removeAllChildNodes(document.getElementById('choicesFlex'));
     for(item of list)
-       document.getElementById('choices').append(item);
-}
-
-
-function isFirstOccurence(arr,value){
-
-}
-
-
-function countOccurences(arr,value){
-    return arr.filter(x => x==value).length;
+       document.getElementById('choicesFlex').append(item);
 }
 
 
 function evaluateAnswer(isCorrect,yourAnswer){
+
+    removeAllChildNodes(document.getElementById("feedbackContainer"));
+    
     //global
     count++;
 
     if (isCorrect)
         countCorrect++;
 
-    document.getElementById("score").innerText = countCorrect + " out of " + count;
+    document.getElementById("score").innerHTML = countCorrect + " out of " + count;
 
-
-    var entry = document.createElement("div");
-    var yourAnswerSpan = document.createElement("span");
-    yourAnswerSpan.innerText = yourAnswer;
+    
+    var feedback = document.createElement("span");
     var answerClass = isCorrect == true ? "correct" : "incorrect";
-    yourAnswerSpan.classList.add(answerClass);
-    //yourAnswerSpan.classList.add("left");
+    var mark =  isCorrect == true ? " &check;" : " &cross;";
     
-    entry.append(yourAnswerSpan);
+
+    feedback.innerHTML = yourAnswer + mark;
     
-    document.getElementById("history").prepend(entry);
+    feedback.classList.add(answerClass);
+        
+    document.getElementById("feedbackContainer").prepend(feedback);
+    feedback.classList.add("feedback");
     
     generateRandomProblem();
 }

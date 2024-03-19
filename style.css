@@ -16,33 +16,65 @@ body{
   font-size:1.2em;
 }
 
-#infinitive,#tense,#history{
+#infinitive,#tense,#feedback{
   font-size:1.4em;
 }
+
+
+
+@keyframes fade {
+  0% {opacity: 100%;}
+  90% {opacity: 100%;}
+  100% {opacity: 0%;}
+}
+
+/* The element to apply the animation to */
+.feedBack{
+  font-size:1.5em;
+  animation-name: fade;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+  
+}
+
 
 #score{
   font-size:2em;
   position: fixed;
-  left:0;
+  width:100%;
   bottom:0;
   background-color:gray;
   padding:10px;
 }
 
-#tips{border:1px solid orange;}
-
-#choices span{
+#tips{
   padding:10px;
-  margin:10px;
+  border-radius:10px;
+  border:1px solid orange;}
+
+
+#choicesFlex {
+  margin-top:10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap:10px;
+  
+  
+}
+.choice{
+  font-size:1.5em;
+  padding:10px;
+  cursor:pointer;
   border-radius: 5px;
   background-color: lightgrey;
-  display:inline-block;
-  
-  cursor:default;
-  text-align:left;
+  color:black;
+  flex: 0 0 70%;
 }
 
-#choices span .answerEnd{
+
+
+.answerEnd{
   padding:0px;
   margin:0px;
   font-weight:bold;
@@ -50,7 +82,7 @@ body{
   background-color:transparent;
 }
 
-#choices span:hover{
+.choice:hover{
   background-color: lightyellow;
 }
 
@@ -62,22 +94,6 @@ body{
 
 #choices{
   color:black;
-}
-
-/*
-.left{
-  text-align:right;
-  margin-right:10px;
-}
-.right{
-  text-align:left;
-  margin-left:10px;
-}
-*/
-
-.correct,.incorrect{
-  width:40%;
-  display:inline-block;
 }
 
 .correct{
