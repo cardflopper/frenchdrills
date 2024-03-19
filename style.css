@@ -24,15 +24,15 @@ body{
 
 @keyframes fade {
   0% {opacity: 100%;}
-  90% {opacity: 100%;}
+  /*90% {opacity: 100%;}*/
   100% {opacity: 0%;}
 }
 
 /* The element to apply the animation to */
 .feedBack{
-  font-size:1.5em;
+  font-size:6em;
   animation-name: fade;
-  animation-duration: 20s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
   
 }

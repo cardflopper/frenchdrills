@@ -90,7 +90,7 @@ function evaluateAnswer(isCorrect,yourAnswer){
     var mark =  isCorrect == true ? " &check;" : " &cross;";
     
 
-    feedback.innerHTML = yourAnswer + mark;
+    feedback.innerHTML =/* yourAnswer +*/ mark;
     
     feedback.classList.add(answerClass);
         
