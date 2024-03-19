@@ -1,7 +1,7 @@
 var subjects = ["je","tu","il","elle","nous","vous","ils","elles"];
 var tenses = ["pastImperfect","present","futureSimple","conditional"];
 var tips = {
-    "pastImperfect":"To conjugate the imperfect tense in French, we take the present-tense stem of the 1st person plural form of the verb (the nous form), and add the following endings: je/tu = ais, il/elle = ait, ions, iez, aient (identical for verbs of all groups)",
+    "pastImperfect":"To conjugate the imperfect tense in French, we take the present-tense stem of the nous form, and add the following endings: je/tu = ais, il/elle = ait, ions, iez, aient (identical for verbs of all groups)",
     "present":"basic",
     "futureSimple":"To conjugate the futur simple, we take the infinitive of the verb and add the following endings: je = ai, tu = as, il/elle = a, ons, ez, ont. (for -re verbs, we remove the final e):",
     "conditional": "We form the conditionnel présent by adding the imparfait endings to the stem of the futur simple form of the verb"

@@ -21,39 +21,37 @@ function generateRandomProblem(){
 
 function displayProblem(vbData,subject,tense_){
 
+    var tense_ans = tenses[tense_];
     
-    var tense = tenses[tense_];
-
-    document.getElementById('tips').innerText = tips[tense];
+    document.getElementById('tips').innerText = tips[tense_ans];
 
     document.getElementById('infinitive').innerText = vbData.inf + " : " +vbData.english.inf
-    document.getElementById('tense').innerText = tense+ " : " + vbData.english[tense] ;
+    document.getElementById('tense').innerText = tense_ans + " : " + vbData.english[tense_ans] ;
     
     document.getElementById('subject').innerText = subjects[subject];
     var list=[];
 
-    for(let i=0; i < vbData[tense].length; i++){
+    
+    for(let i=0; i < tenses.length; i++){
+
         var choice = document.createElement("span");
         
         var conjugatedEnding = document.createElement("span");
         conjugatedEnding.classList.add("answerEnd");
         
-        conjugatedEnding.innerText = vbData[tense][i];
+        conjugatedEnding.innerText = vbData[tenses[i]][subject];
         
-        
-        choice.innerText = vbData.base[tense];
+        choice.innerText = vbData.base[tenses[i]];
         choice.append(conjugatedEnding);
 
-        
-        if(i == vbData[tense].indexOf(vbData[tense][subject]))
-            choice.addEventListener("click", () => evaluateAnswer(true,vbData.base[tense] + vbData[tense][i]), true);
+        if(i == tense_)
+            choice.addEventListener("click", () => evaluateAnswer(true, vbData.base[tenses[i]] + vbData[tenses[i]][subject]), true);
         else        
-            choice.addEventListener("click", () => evaluateAnswer(false,vbData.base[tense] + vbData[tense][i]), true);
-
-        if(i == vbData[tense].indexOf(vbData[tense][i]))
-            list.push(choice);
+            choice.addEventListener("click", () => evaluateAnswer(false, vbData.base[tenses[i]] + vbData[tenses[i]][subject]), true);
         
+        list.push(choice);
     }
+
     
     shuffle(list);
 
