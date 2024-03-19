@@ -9,11 +9,24 @@ body{
 }
 
 #choices{
+  font-size:1.5em;
+}
+
+#tips{
   font-size:1.2em;
 }
 
-#tips,#infinitive,#tense,#history{
-  font-size:1.2em;
+#infinitive,#tense,#history{
+  font-size:1.4em;
+}
+
+#score{
+  font-size:2em;
+  position: fixed;
+  left:0;
+  bottom:0;
+  background-color:gray;
+  padding:10px;
 }
 
 #tips{border:1px solid orange;}
@@ -51,6 +64,7 @@ body{
   color:black;
 }
 
+/*
 .left{
   text-align:right;
   margin-right:10px;
@@ -59,6 +73,7 @@ body{
   text-align:left;
   margin-left:10px;
 }
+*/
 
 .correct,.incorrect{
   width:40%;
@@ -71,5 +86,3 @@ body{
 .incorrect{
 color:red;
 }
-
-

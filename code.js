@@ -1,6 +1,7 @@
 
 
-        
+var count = 0;      
+var countCorrect = 0;      
 
 generateRandomProblem();
 
@@ -72,14 +73,21 @@ function countOccurences(arr,value){
 
 
 function evaluateAnswer(isCorrect,yourAnswer){
-    
-    
+    //global
+    count++;
+
+    if (isCorrect)
+        countCorrect++;
+
+    document.getElementById("score").innerText = countCorrect + " out of " + count;
+
+
     var entry = document.createElement("div");
     var yourAnswerSpan = document.createElement("span");
     yourAnswerSpan.innerText = yourAnswer;
     var answerClass = isCorrect == true ? "correct" : "incorrect";
     yourAnswerSpan.classList.add(answerClass);
-    yourAnswerSpan.classList.add("left");
+    //yourAnswerSpan.classList.add("left");
     
     entry.append(yourAnswerSpan);
     
