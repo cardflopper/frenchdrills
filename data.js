@@ -54,7 +54,7 @@ var verbData = [
             "english": {"inf":"to demand","pastImperfect":"[was/were] demanding","present":"[am/are/is] demanding","futureSimple":"will demand","conditional":"would demand"},
             "end":"er",
             "type":"regular",
-            "base": {"pastImperfect":"demand","present":"demand","futureSimple":"demander","conditional":"arriver"},
+            "base": {"pastImperfect":"demand","present":"demand","futureSimple":"demander","conditional":"demander"},
             "pastImperfect":["ais","ais","ait","ait","ions","iez","aient","aient"],
             "present":["e","es","e","e","ons","ez","ent","ent"],
             "futureSimple":["ai","as","a","a","ons","ez","ont","ont"],
