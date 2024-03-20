@@ -50,15 +50,21 @@ function displayProblem(vbData,subject_,tense_){
         var conjugatedEnding = document.createElement('span');
         conjugatedEnding.classList.add('answerEnd');
         
-        conjugatedEnding.innerText = vbData[tenses[i]][subject_];
+        var conjEnding = "";
+
+        if (vbData.type == "regular")
+            conjEnding = regularVerbData[vbData.end][tenses[i]][subject_];
+        else
+            conjEnding = vbData[tenses[i]][subject_];
         
+        conjugatedEnding.innerText = conjEnding;
         choice.innerText = vbData.base[tenses[i]];
         choice.append(conjugatedEnding);
 
         if(i == tense_)
-            choice.addEventListener("click", () => evaluateAnswer(true, tenses[i]+": "+sub + " " + vbData.base[tenses[i]] + vbData[tenses[i]][subject_]), true);
+            choice.addEventListener("click", () => evaluateAnswer(true, tenses[i]+": "+sub + " " + vbData.base[tenses[i]] + conjEnding), true);
         else        
-            choice.addEventListener("click", () => evaluateAnswer(false, tenses[i]+": "+sub + " " + vbData.base[tenses[i]] + vbData[tenses[i]][subject_]), true);
+            choice.addEventListener("click", () => evaluateAnswer(false, tenses[i]+": "+sub + " " + vbData.base[tenses[i]] + conjEnding), true);
         
         list.push(choice);
     }
