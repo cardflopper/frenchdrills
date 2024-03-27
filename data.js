@@ -140,5 +140,38 @@ var verbData = [
             "end": "re",
             "type": "regular",
             "base": { "pastImperfect":"vend" ,"present":"vend", "futureSimple":"vendr", "conditional":"vendr"}},
-        ];
+
+        {   
+            "inf": "devoir",
+            "english": { "inf":"to have to", "pastImperfect":"had to", "present":"has to", "futureSimple":"will have to", "conditional":"should"},
+            "end": "ir",
+            "type": "irregular",
+            "base": { "pastImperfect":"d" ,"present":"d", "futureSimple":"d", "conditional":"d"},
+            "pastImperfect": [ "evais","evais","evait","evait","evions","eviez","evaient","evaient" ],
+            "present": [ "ois","ois","oit","oit","evons","evez","oivient","doivent" ],
+            "futureSimple": [ "evrai","evras","evra","evra","evrons","evrez","evront","evront" ],
+            "conditional": [ "evrais","evrais","evrait","evrait","evrions","evriez","evraient","evraient"]},
+
+        {   
+            "inf": "pouvoir",
+            "english": { "inf":"to be able to", "pastImperfect":"[was/were] able to", "present":"can", "futureSimple":"will be able to", "conditional":"could"},
+            "end": "ir",
+            "type": "irregular",
+            "base": { "pastImperfect":"p" ,"present":"p", "futureSimple":"p", "conditional":"p"},
+            "pastImperfect": [ "ouvais","ouvais","ouvait","ouvait","ouvions","ouviez","ouvaient","ouvaient" ],
+            "present": [ "eux","eux","eut","eut","ouvons","ouvez","euvent","euvent" ],
+            "futureSimple": [ "ourrai","ourras","ourra","ourra","ourrons","ourrez","ourront","ourront" ],
+            "conditional": [ "ourrais","ourrais","ourrait","ourrait","ourrions","ourriez","ourraient","ourraient"]},
+
+        {   
+            "inf": "vouloir",
+            "english": { "inf":"to want to", "pastImperfect":"wanted", "present":"want", "futureSimple":"will want", "conditional":"would like to"},
+            "end": "ir",
+            "type": "irregular",
+            "base": { "pastImperfect":"v" ,"present":"v", "futureSimple":"v", "conditional":"v"},
+            "pastImperfect": [ "oulais","oulais","oulait","oulait","oulions","ouliez","oulaient","oulaient"],
+            "present": [ "eux","eux","eut","eut","oulons","oulez","eulent","eulent" ],
+            "futureSimple": [ "oudrai","oudras","oudra","oudra","oudrons","oudrez","oudront","oudront" ],
+            "conditional": [ "oudrais","oudrais","oudrait","oudrait","oudrions","oudriez","oudraient","oudraient" ]},
+ ];
  
