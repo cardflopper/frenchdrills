@@ -21,7 +21,7 @@ function generateRandomProblem(){
 }
 
 function startsWithVowel(str){
- return "aeiouAEIOU".indexOf(str.charAt(0)) != -1;
+ return "aeéiouAEIOU".indexOf(str.charAt(0)) != -1;
 }
 
 
