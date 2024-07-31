@@ -1,104 +1,93 @@
-body{
-  background-color:black;
-  color:white;
-  text-align:center;
-}
-
-#subject{
-  font-size:3em;
-}
-
-#choices{
-  font-size:1.5em;
-}
-
-#tips{
-  font-size:1.2em;
-}
-
-#infinitive,#tense,#feedback{
-  font-size:1.4em;
+body {
+    font-family: Arial, sans-serif;
+    /*background-color: #f8f8f8;*/
+    background-color: darkslategray;
+    color: #333;
 }
 
 
 
-@keyframes fade {
-  0% {opacity: 100%;}
-  /*90% {opacity: 100%;}*/
-  100% {opacity: 0%;}
+
+
+.container {
+    width: 30%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 50px;
+    text-align: center;
 }
 
-/* The element to apply the animation to */
-.feedBack{
-  font-size:6.5em;
-  animation-name: fade;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 85%;
+    }    
 }
 
-
-#score{
-  font-size:2em;
-  position: fixed;
-  width:100%;
-  bottom:0;
-  background-color:gray;
-  padding:10px;
+h1 {
+    text-align: center;
 }
 
-#tips{
-  padding:10px;
-  border-radius:10px;
-  border:1px solid orange;}
-
-
-#choicesFlex {
-  margin-top:10px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap:10px;
-  
-  
-}
-.choice{
-  font-size:1.5em;
-  padding:10px;
-  cursor:pointer;
-  border-radius: 5px;
-  background-color: lightgrey;
-  color:black;
-  flex: 0 0 70%;
+.form-group {
+    margin-bottom: 20px;
 }
 
-
-
-.answerEnd{
-  padding:0px;
-  margin:0px;
-  font-weight:bold;
-  text-decoration: underline;
-  background-color:transparent;
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
 }
 
-.choice:hover{
-  background-color: lightyellow;
+button:hover {
+    background-color: #45a049;
 }
 
-.ending{
-  font-weight:bold;
+#question {
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 
 
-#choices{
-  color:black;
+#score,#options {
+    margin-top: 20px;
 }
 
-.correct{
-  color:green;
+.option {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
-.incorrect{
-color:red;
+
+
+.option:hover {
+    background-color: #ddd;
 }
+
+.option.correct{
+    background-color:lightgreen;
+}
+
+.option.incorrect{
+    background-color:pink;
+}
+
+
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
