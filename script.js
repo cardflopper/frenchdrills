@@ -1,8 +1,11 @@
 let countCorrect = 0;
+let countCombo = 0;
 let count = 0;
+let combo = 0;
 
 // Function to generate a question
 function generateQuestion() {
+    
     count++;
     const verbs = Object.keys(conjugations);
     const verb = verbs[Math.floor(Math.random() * verbs.length)];
@@ -30,8 +33,6 @@ function generateQuestion() {
     // Combine correct and incorrect options
     let options = [correctConjugation, ...incorrectConjugations];
 
-    
-
     /*
     // Add one more random incorrect option
     while (options.length < 5) {
@@ -48,7 +49,10 @@ function generateQuestion() {
     const correctIndex = options.indexOf(correctConjugation);
 
     // Display question and options
-    document.getElementById('question').innerText = `Conjugate the verb "${verb}" for "${subjectPronoun}" in ${correctTense.replace('_', ' ')} tense`;
+
+    const link = `<a target="_blank" href="https://www.collinsdictionary.com/dictionary/french-english/${verb}">${verb}</a>`;
+
+    document.getElementById('question').innerHTML = ` ${subjectPronoun} - ${link} - ${correctTense.replace('_', ' ')}`;
 
     const optionsContainer = document.getElementById('options');
     optionsContainer.innerHTML = '';
@@ -60,13 +64,15 @@ function generateQuestion() {
         optionsContainer.appendChild(optionElement);
     });
 
-    document.getElementById('result').innerText = '';
-
+    const feedback = document.getElementById('feedback');
+    feedback.style = '';
+    feedback.innerText = 'select your answer';
+    
 }
 
 // Function to check the answer
 function checkAnswer(selected, correct) {
-    const result = document.getElementById('result');
+    const feedback = document.getElementById('feedback');
     const options = document.querySelectorAll('.option');
 
     // Disable click event for all options
@@ -95,26 +101,26 @@ function checkAnswer(selected, correct) {
     let delay = 500;
 
     if (selected === correct) {
-        result.innerText = 'Correct!';
-        result.style.color = 'green';
+        feedback.innerText = 'Correct!';
+        feedback.style.color = 'green';
         countCorrect++;
+        countCombo++;
     } else {
-        result.innerText = `Incorrect!`;// The correct answer is: ${correct}`;
-        result.style.color = 'red';
+        feedback.innerText = `Incorrect!`;// The correct answer is: ${correct}`;
+        feedback.style.color = 'red';
         options[selectedOptionIndex].classList.add('incorrect');
         delay = 8500;
+        countCombo = 0;
     }
+    combo = countCombo > combo ? countCombo: combo; //set combo if new record achieved
 
     options[correctOptionIndex].classList.add('correct');
 
-    document.getElementById("score").innerHTML = `score: ${countCorrect}/${count}`;
+    document.getElementById("score").innerHTML = `score: ${countCorrect}/${count} - combo: ${countCombo} - record: ${combo}`;
 
     setTimeout(() => {
         // Generate the next question
         generateQuestion();
-
-        // Clear result message and re-enable options for the next question
-        result.innerText = '';
     }, delay); // Load the next question after 2 seconds
 }
 

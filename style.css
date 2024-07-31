@@ -22,7 +22,7 @@ body {
 
 @media only screen and (max-width: 600px) {
     .container {
-        width: 85%;
+        width: 70%;
     }    
 }
 
@@ -34,28 +34,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    border: none;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
 #question {
     margin-top: 20px;
     font-weight: bold;
 }
-
-
 
 #score,#options {
     margin-top: 20px;
@@ -71,11 +53,6 @@ button:hover {
     cursor: pointer;
 }
 
-
-.option:hover {
-    background-color: #ddd;
-}
-
 .option.correct{
     background-color:lightgreen;
 }
@@ -84,9 +61,7 @@ button:hover {
     background-color:pink;
 }
 
-
-
-#result {
+#feedback {
     margin-top: 20px;
     font-weight: bold;
 }
