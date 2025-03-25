@@ -2,6 +2,22 @@ let countCorrect = 0;
 let countCombo = 0;
 let count = 0;
 let combo = 0;
+let soundEnabled = false; // Default sound off
+
+var correctSound = new Audio('correct.mp3');
+var incorrectSound = new Audio('incorrect.mp3');
+
+
+document.getElementById('toggleSound').classList.add('strikeOff');
+
+document.getElementById('toggleSound').addEventListener('click', function () {
+    soundEnabled = !soundEnabled;
+    if (soundEnabled) {
+        this.classList.remove('strikeOff');
+    } else {
+        this.classList.add('strikeOff');
+    }
+});
 
 // Function to generate a question
 function generateQuestion() {
@@ -24,7 +40,8 @@ function generateQuestion() {
     const incorrectTenses = tenses.filter(tense => tense !== correctTense);
     const incorrectConjugations = [];
     incorrectTenses.forEach(tense => {
-        const conjugation = conjugations[verb].tenses[tense].find(conj => {return subjectPronoun == 'je' ? conj.startsWith('j'):conj.startsWith(subjectPronoun)});
+        //extra ? is a "safeguard not sure what this is"
+        const conjugation = conjugations[verb].tenses[tense]?.find(conj => {return subjectPronoun == 'je' ? conj.startsWith('j'):conj.startsWith(subjectPronoun)});
         if (conjugation) {
             incorrectConjugations.push(conjugation);
         }
@@ -46,7 +63,7 @@ function generateQuestion() {
     // Shuffle options
     const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
-    const correctIndex = options.indexOf(correctConjugation);
+    const correctIndex = shuffledOptions.indexOf(correctConjugation);
 
     // Display question and options
 
@@ -59,7 +76,7 @@ function generateQuestion() {
     shuffledOptions.forEach(option => {
         const optionElement = document.createElement('div');
         optionElement.className = 'option';
-        optionElement.innerText = option;
+        optionElement.textContent = option;
         optionElement.onclick = () => checkAnswer(option, correctConjugation, correctIndex);
         optionsContainer.appendChild(optionElement);
     });
@@ -81,35 +98,23 @@ function checkAnswer(selected, correct) {
     });
 
 
-    let correctOptionIndex = -1;
-    for(let i = 0; i < options.length; i++){
-        if(options[i].innerHTML == correct){
-            correctOptionIndex = i;
-            break;
-        }
-    }
-
-    let selectedOptionIndex = -1;
-    for(let i = 0; i < options.length; i++){
-        if(options[i].innerHTML == selected){
-            selectedOptionIndex = i;
-            break;
-        }
-    }
-
-
+    const correctOptionIndex = [...options].findIndex(opt => opt.innerHTML === correct);
+    const selectedOptionIndex = [...options].findIndex(opt => opt.innerHTML === selected);
+    
     let delay = 500;
 
     if (selected === correct) {
+        if (soundEnabled) correctSound.play();
         feedback.innerText = 'Correct!';
         feedback.style.color = 'green';
         countCorrect++;
         countCombo++;
     } else {
+        if (soundEnabled)  incorrectSound.play();
         feedback.innerText = `Incorrect!`;// The correct answer is: ${correct}`;
         feedback.style.color = 'red';
         options[selectedOptionIndex].classList.add('incorrect');
-        delay = 8500;
+        delay = 2000;
         countCombo = 0;
     }
     combo = countCombo > combo ? countCombo: combo; //set combo if new record achieved

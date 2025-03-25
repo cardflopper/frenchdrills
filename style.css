@@ -5,9 +5,10 @@ body {
     color: #333;
 }
 
+.toggleContainer{text-align: right;}
+#toggleSound{cursor: pointer;}
 
-
-
+.strikeOff{text-decoration: line-through; opacity:0.5;}
 
 .container {
     width: 30%;
@@ -27,6 +28,7 @@ body {
 }
 
 h1 {
+    
     text-align: center;
 }
 
